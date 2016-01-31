@@ -1,0 +1,58 @@
+{
+  "name": "photo-front",
+  "version": "0.0.1",
+  "scripts": {
+    "prebuild": "typings install",
+    "postinstall": "typings install",
+    "build_old": "NODE_ENV=production webpack -p --display-modules --progress",
+    "build": "NODE_ENV=production webpack",
+    "start": "NODE_ENV=development webpack-dev-server --inline --hot"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.0.0",
+    "angular-messages": "^1.4.8",
+    "angular-ui-router": "~0.2.13",
+    "angular-ui-scroll": "~1.3.0",
+    "flexboxgrid": "^6.3.0",
+    "lodash": "^3.10.1",
+    "normalize.css": "^3.0.3",
+    "restangular": "~1.5.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-runtime": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-runtime": "^6.2.0",
+    "copy-webpack-plugin": "^0.3.3",
+    "css-loader": "^0.23.0",
+    "exports-loader": "^0.6.2",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.4",
+    "html-loader": "^0.3.0",
+    "html-webpack-plugin": "^1.6.2",
+    "json-loader": "^0.5.3",
+    "rimraf": "^2.4.3",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.5",
+    "typings": "^0.3.5",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.6"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "optionalDependencies": {
+    "jshint": "^2.8.0",
+    "jshint-loader": "^0.8.3",
+    "open-browser-webpack-plugin": "0.0.1",
+    "tslint": "^3.2.1",
+    "tslint-loader": "^2.1.0",
+    "webpack-dev-server": "^1.12.1"
+  }
+}

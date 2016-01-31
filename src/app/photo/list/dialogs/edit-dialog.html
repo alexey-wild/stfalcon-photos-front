@@ -1,0 +1,36 @@
+<md-dialog>
+  <md-dialog-content>
+    <form class="md-dialog-content">
+      <div flex-xs flex-gt-xs="100" layout="column">
+        <img ng-src="{{vm.photo.url}}" aria-label="{{vm.photo.originalName}}" class="md-card-image" />
+      </div>
+
+      <md-chips ng-model="vm.selectedTags"
+                md-autocomplete-snap
+                md-transform-chip="vm.transformChip($chip)"
+                md-require-match="false">
+        <md-autocomplete placeholder="Select or create tag"
+                         md-selected-item="vm.selectedTag"
+                         md-search-text="vm.searchText"
+                         md-items="item in vm.queryTag(vm.searchText)"
+                         md-item-text="item.name"
+                         md-input-maxlength="255"
+                         md-input-maxlength="1"
+                         md-select-on-match="true">
+          <span md-highlight-text="vm.searchText">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+      </md-content>
+    </form>
+  </md-dialog-content>
+
+  <md-dialog-actions>
+    <md-button ng-click="vm.close()">Cancel</md-button>
+    <md-button ng-click="vm.save(vm.photo)">Save</md-button>
+  </md-dialog-actions>
+</md-dialog>

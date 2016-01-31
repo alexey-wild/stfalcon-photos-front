@@ -1,0 +1,40 @@
+.file-field.input-field {
+  text-align: center;
+  cursor: pointer;
+}
+
+.file-field input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  line-height: 40px;
+  z-index: 999999;
+  width: 60px;
+  height: 60px;
+}
+
+.md-errors-spacer {
+  display: none;
+}
+
+md-dialog {
+  min-width: 300px;
+  min-height: 276px;
+}
+
+md-content.autocomplete {
+  min-height: 200px;
+}
+
+.text-danger {
+  color: #ff0000;
+  font-size: 0.85em;
+}

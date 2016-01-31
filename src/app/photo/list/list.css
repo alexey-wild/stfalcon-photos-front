@@ -1,0 +1,9 @@
+.md-subhead .md-chips {
+  margin-right: 10px;
+  box-shadow: 0 1px rgb(224,224,224);
+}
+
+.md-chips .md-chip {
+  background: rgb(224,224,224);
+  color: rgb(66,66,66);
+}

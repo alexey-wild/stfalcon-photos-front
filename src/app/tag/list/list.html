@@ -1,0 +1,11 @@
+<div>
+  <md-list>
+    <md-subheader class="md-no-sticky">Tags</md-subheader>
+      <md-list-item ng-repeat="tag in vm.tags">
+        <md-button class="md-fab md-mini" aria-label="Remove tag" ng-click="vm.removeTag($event, tag)" >
+          <md-icon class="material-icons" aria-label="Remove tag">remove</md-icon>
+        </md-button>
+        <p>{{ tag.name }}</p>
+      </md-list-item>
+  </md-list>
+</div>

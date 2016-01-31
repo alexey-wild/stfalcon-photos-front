@@ -1,0 +1,69 @@
+<div>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="90" layout="column">
+      <md-chips ng-model="vm.selectedTags"
+                md-autocomplete-snap
+                md-transform-chip="vm.transformChip($chip)"
+                md-on-add="vm.onSearchTagUpdated($chip)"
+                md-on-remove="vm.onSearchTagUpdated($chip)"
+                md-require-match="true">
+        <md-autocomplete placeholder="Search by tags"
+                         md-selected-item="vm.selectedTag"
+                         md-search-text="vm.searchText"
+                         md-items="item in vm.queryTag(vm.searchText)"
+                         md-item-text="item"
+                         md-input-maxlength="255"
+                         md-input-maxlength="1"
+                         md-select-on-match="true">
+          <span md-highlight-text="vm.searchText">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+          <span>
+            <strong>{{$chip}}</strong>
+          </span>
+        </md-chip-template>
+      </md-chips>
+    </div>
+    <div flex-xs flex-gt-xs="10" layout="column">
+      <md-button md-direction="left" class="md-raised md-primary" ng-click="vm.addPhoto($event)">Add new</md-button>
+    </div>
+  </md-content>
+  <md-content class="md-paddingf" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column" ng-if="vm.photos.length > 0">
+      <md-card ng-repeat="photo in vm.photos">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{photo.originalName}}</span>
+            <span class="md-subhead">
+              <div class="md-chips md-readonly">
+                <div ng-repeat="tag in photo.tags" class="md-chip">
+                  {{tag.name}}
+                </div>
+              </div>
+            </span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-src="{{photo.url}}" aria-label="{{photo.originalName}}" />
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ng-href="{{photo.url}}" target="_blank">Full size</md-button>
+          <md-button ng-click="vm.editPhoto($event, photo)">Edit</md-button>
+          <md-button ng-click="vm.removePhoto($event, photo)">Delete</md-button>
+        </md-card-actions>
+      </md-card>
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap ng-show="vm.photos.total > vm.photos.length">
+        <md-button ng-disabled="vm.currentPage < 2" ng-click="vm.toPrevPage()" class="md-raised" aria-label="Prev"><</md-button>
+        <md-button ng-disabled="true" class="md-raised" aria-label="">{{vm.currentPage}}</md-button>
+        <md-button ng-disabled="vm.currentPage >= vm.round(vm.photos.total / vm.pearPage)" ng-click="vm.toNextPage()" class="md-raised" aria-label="Next">></md-button>
+      </section>
+    </div>
+    <div flex-xs flex-gt-xs="100" layout="column" ng-if="vm.photos.length == 0">
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <span>Nothing found</span>
+      </section>
+    </div>
+  </md-content>
+</div>
